@@ -172,6 +172,3 @@ def run(train_dataset, eval_dataset, training_config):
         print(f"Directory {path_to_remove} does not exist.")
 
     return results
-
-if __name__=="__main__":
-    run()
