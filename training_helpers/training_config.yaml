@@ -17,7 +17,6 @@ train_params:
   box: 7.5
   cls: 0.5
   dfl: 1.5
-  fl_gamma: 1.5
   label_smoothing: 0.1
   nbs: 64
   hsv_h: 0.015

@@ -83,8 +83,11 @@ def train_model(training_dataset, training_config):
 
     print("Training the model...")
 
+    script_dir = Path(__file__).resolve().parent
+    yolo_formatted_dir = script_dir / "yolo_formatted"
+
     results = model.train(
-        data="./yolo_formatted/dataset.yaml",
+        data=yolo_formatted_dir / "dataset.yaml",
         **training_config['train_params']
     )
     
@@ -163,12 +166,22 @@ def run(train_dataset, eval_dataset):
 
     print("Cleaning up YOLO formatted dataset...")
 
-    path_to_remove = script_dir / "yolo_formatted"
+    yolo_formatted_dir = script_dir / "yolo_formatted"
 
-    if path_to_remove.exists():
-        shutil.rmtree(path_to_remove)
-        print(f"Removed {path_to_remove}")
+    if yolo_formatted_dir.exists():
+        shutil.rmtree(yolo_formatted_dir)
+        print(f"Removed {yolo_formatted_dir}")
     else:
-        print(f"Directory {path_to_remove} does not exist.")
+        print(f"Directory {yolo_formatted_dir} does not exist.")
+
+    print("Cleaning up YOLO training artifacts...")
+
+    yolo_training_artifacts = script_dir / "runs"
+
+    if yolo_training_artifacts.exists():
+        shutil.rmtree(yolo_training_artifacts)
+        print(f"Removed {yolo_training_artifacts}")
+    else:
+        print(f"Directory {yolo_training_artifacts} does not exist.")
 
     return results
