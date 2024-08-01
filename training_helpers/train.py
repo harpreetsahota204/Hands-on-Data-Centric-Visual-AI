@@ -140,7 +140,7 @@ def eval_model(dataset_to_evaluate):
 
     return detection_results
 
-def run(train_dataset, eval_dataset, training_config):
+def run(train_dataset, eval_dataset):
     """
     Main function to run the entire training and evaluation process.
 
