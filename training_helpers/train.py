@@ -150,9 +150,9 @@ def run(train_dataset, eval_dataset, training_config):
 
     print("Loading configuration file ...")
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(script_dir, 'training_config.yaml')
-    with open(config_path, 'r') as file:
+    script_dir = Path(__file__).resolve().parent
+    config_path = script_dir / 'training_config.yaml'
+    with config_path.open('r') as file:
         training_config = yaml.safe_load(file)
 
     best_trained_model = train_model(training_dataset=train_dataset, training_config=training_config)
@@ -163,7 +163,7 @@ def run(train_dataset, eval_dataset, training_config):
 
     print("Cleaning up YOLO formatted dataset...")
 
-    path_to_remove = Path("./yolo_formatted")
+    path_to_remove = script_dir / "yolo_formatted"
 
     if path_to_remove.exists():
         shutil.rmtree(path_to_remove)
