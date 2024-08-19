@@ -4,9 +4,10 @@ val_split: 0.1
 
 # Training parameters
 train_params:
-  epochs: 30
+  # device: "cpu" #change to "cuda" if you have a GPU or "mps" if training on apple silicon
+  epochs: 3
   batch: 16
-  imgsz: 1280
+  imgsz: 640
   lr0: 0.001
   lrf: 0.01
   momentum: 0.937
