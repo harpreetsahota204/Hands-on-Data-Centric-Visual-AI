@@ -30,11 +30,12 @@ train_params:
   perspective: 0.001
   flipud: 0.5
   fliplr: 0.5
+  erasing: 0.25
   mosaic: 1.0
   mixup: 0.1
   copy_paste: 0.1
   amp: true
-  multi_scale: true
   overlap_mask: true
   mask_ratio: 4
   patience: 50
+  bgr: 0.15
